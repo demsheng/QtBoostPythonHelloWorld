@@ -12,6 +12,7 @@ QT += widgets
 
 TARGET = helloworld
 TEMPLATE = lib
+CONFIG += staticlib
 
 SOURCES += \
     main.cpp
