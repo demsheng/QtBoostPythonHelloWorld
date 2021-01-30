@@ -1,0 +1,7 @@
+#ifndef PYTHON_INTERPRETER_H
+#define PYTHON_INTERPRETER_H
+
+
+int test();
+
+#endif // PYTHON_INTERPRETER_H

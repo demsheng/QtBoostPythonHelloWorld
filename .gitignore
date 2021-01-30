@@ -1,3 +1,14 @@
+#
+build-*
+ex3_QtEmbeddingPythonInterpreter/app/Makefile*
+ex3_QtEmbeddingPythonInterpreter/app/debug/*
+ex3_QtEmbeddingPythonInterpreter/app/release/*
+
+ex3_QtEmbeddingPythonInterpreter/pyInterpreter/Makefile*
+ex3_QtEmbeddingPythonInterpreter/pyInterpreter/debug/*
+ex3_QtEmbeddingPythonInterpreter/pyInterpreter/release/*
+
+
 # C++ objects and libs
 *.slo
 *.lo
