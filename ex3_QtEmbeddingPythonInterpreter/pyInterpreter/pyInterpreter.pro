@@ -22,14 +22,13 @@ HEADERS += \
     python_interpreter.h
 
 win32:INCLUDEPATH += $$quote(F:\MyProgram\QtProject\libs\python3_9_1\include)
-win32:INCLUDEPATH += $$quote(F:\MyProgram\QtProject\libs\boost_1_75_0)
+#win32:INCLUDEPATH += $$quote(F:\MyProgram\QtProject\libs\boost_1_75_0)
 
-
-#debug
+CONFIG(debug, debug|release) {
 win32:LIBS += $$quote(F:\MyProgram\QtProject\libs\python3_9_1\libs\python39_d.lib)
-win32:LIBS += $$quote(F:\MyProgram\QtProject\libs\boost_1_75_0\stage\lib\libboost_python39-vc141-mt-gd-x64-1_75.lib)
-#release
-#win32:LIBS += $$quote(F:\MyProgram\QtProject\libs\python3_9_1\libs\python39.lib)
+#win32:LIBS += $$quote(F:\MyProgram\QtProject\libs\boost_1_75_0\stage\lib\libboost_python39-vc141-mt-gd-x64-1_75.lib)
+}else{
+win32:LIBS += $$quote(F:\MyProgram\QtProject\libs\python3_9_1\libs\python39.lib)
 #win32:LIBS += $$quote(F:\MyProgram\QtProject\libs\boost_1_75_0\stage\lib\boost_python39-vc141-mt-x64-1_75.lib)
-
+}
 

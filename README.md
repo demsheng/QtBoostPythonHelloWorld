@@ -9,8 +9,8 @@
 ### 实例介绍
 
 - `ex1_cpp2lib`  扩展python，`qtcreator` 中将使用`boost.python`库的cpp编译成lib,在python中调用该lib 。
-- `ex2_cppEmbeddingPythonInterpreter` 将python作为cpp程序的脚本
-- `ex3_QtEmbeddingPythonInterpreter` 与ex2类似，将python作为Qt GUI程序的脚本
+- `ex2_cppEmbeddingPythonInterpreter` 将python作为cpp程序的脚本，实际未使用boost::python
+- `ex3_QtEmbeddingPythonInterpreter` 与ex2类似，将python作为Qt GUI程序的脚本，实际未使用boost::python
 - `ex4_MultFilesWrapper` 为c++源码，单独封装一个wrapper供python调用
 - `ex5_WrapperVector` 传递c++的std::vector<A>类型到python
 

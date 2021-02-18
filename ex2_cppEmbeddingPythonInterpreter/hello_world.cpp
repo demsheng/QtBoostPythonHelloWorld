@@ -1,21 +1,21 @@
-﻿#define BOOST_BIND_GLOBAL_PLACEHOLDERS
+﻿//#define BOOST_BIND_GLOBAL_PLACEHOLDERS
 
-#define BOOST_LIB_DIAGNOSTIC
-//它可以让VC在编译时的output窗口中输出程序具体链接了哪些boost库以及链接顺序。
+//#define BOOST_LIB_DIAGNOSTIC
+////它可以让VC在编译时的output窗口中输出程序具体链接了哪些boost库以及链接顺序。
 
-#define BOOST_ALL_NO_LIB
+//#define BOOST_ALL_NO_LIB
 //告诉boost禁用自动链接。
 
 #include <iostream>
 #include <Python.h>
-#include <boost/python.hpp>
+//#include <boost/python.hpp>
 #include <iostream>
 #include <string>
 #include <string.h>
 #include <fstream>
 
 using namespace std;
-using namespace boost::python;
+//using namespace boost::python;
 
 int main() {
     //初始化读取 py 文件的信息
