@@ -1,10 +1,12 @@
 ﻿#define BOOST_BIND_GLOBAL_PLACEHOLDERS
 
-#define BOOST_LIB_DIAGNOSTIC
 //它可以让VC在编译时的output窗口中输出程序具体链接了哪些boost库以及链接顺序。
+#define BOOST_LIB_DIAGNOSTIC
 
-#define BOOST_ALL_NO_LIB
 //告诉boost禁用自动链接。
+#define BOOST_ALL_NO_LIB
+
+#define BOOST_PYTHON_STATIC_LIB
 
 #include<string>
 #include<boost/python.hpp>
@@ -20,6 +22,5 @@ char const * greet()
 
 BOOST_PYTHON_MODULE(hello)
 {
-    using namespace boost::python;		// 打开命名空间
     def("greet", greet);
 }

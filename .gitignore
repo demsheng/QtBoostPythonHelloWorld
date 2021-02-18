@@ -1,4 +1,8 @@
 #
+1*
+ex1_cpp2lib/%SystemDrive%/*
+ex5_WrapperVector/%SystemDrive%/*
+
 build-*
 ex3_QtEmbeddingPythonInterpreter/app/Makefile*
 ex3_QtEmbeddingPythonInterpreter/app/debug/*
