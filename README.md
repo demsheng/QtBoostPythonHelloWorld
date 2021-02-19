@@ -7,13 +7,16 @@
 - 支持 `window10`  系统
 
 ### 实例介绍
-
-- `ex1_cpp2lib`  扩展python，`qtcreator` 中将使用`boost.python`库的cpp编译成lib,在python中调用该lib 。
-- `ex2_cppEmbeddingPythonInterpreter` 将python作为cpp程序的脚本，实际未使用boost::python
-- `ex3_QtEmbeddingPythonInterpreter` 与ex2类似，将python作为Qt GUI程序的脚本，实际未使用boost::python
-- `ex4_MultFilesWrapper` 为c++源码，单独封装一个wrapper供python调用
-- `ex5_WrapperVector` 传递c++的std::vector<A>类型到python
-
++ 第一组 入门
+	- `ex1_cpp2lib`  扩展python，`qtcreator` 中将使用`boost.python`库的cpp编译成lib,在python中调用该lib 。
+	- `ex2_cppEmbeddingPythonInterpreter` 将python作为cpp程序的脚本，实际未使用boost::python
+	- `ex3_QtEmbeddingPythonInterpreter` 与ex2类似，将python作为Qt GUI程序的脚本，实际未使用boost::python
++ 第二组 编写单独的wrapper
+	- `ex4_MultFilesWrapper` 为c++源码，单独封装一个wrapper供python调用
+	- `ex5_WrapperVector` 传递c++的`std::vector<A>`类型到python
++ 第三组 让python处理`c++`中的对象数据，此时是传递了一个c++对象的指针给python，不需要生成pyd格式的库。传递`c++`中的对象实例给python，让python处理，之后`c++`可以使用该处理后的对象实例。
+	- `ex6_cpp_object_to_python_single_file` 传递c++中的对象实例到python
+	- `ex7_cpp_object_to_python_mult_file` 同ex6，区别是分离成多个文件
 
 编译运行实例，使用 `qtcreator` 打开各实例文件夹下的 `*.pro` 运行。
 
