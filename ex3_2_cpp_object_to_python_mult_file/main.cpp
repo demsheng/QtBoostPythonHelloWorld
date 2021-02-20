@@ -36,6 +36,8 @@ int main()//int argc, char **argv)
     try {
         PyRun_SimpleString(
             "class Person:\n"
+            "    def __init__(self):\n"
+            "        print ('hello init', flush=True)\n"
             "    def sayHi(self):\n"
             "        print ('hello from python', flush=True)\n"
             "    def greetReset(self, instance):\n"
