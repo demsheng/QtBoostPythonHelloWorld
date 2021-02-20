@@ -3,6 +3,7 @@
 2*
 ex1_1_cpp2lib/%SystemDrive%/*
 ex2_2_WrapperVector/%SystemDrive%/*
+ex3_3_cpp_object_to_python_execfile/%SystemDrive%/*
 
 build-*
 ex3_QtEmbeddingPythonInterpreter/app/Makefile*

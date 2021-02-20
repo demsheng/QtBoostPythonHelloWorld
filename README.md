@@ -12,12 +12,14 @@
 	- `ex1_2_cppEmbeddingPythonInterpreter` 将python作为cpp程序的脚本，实际未使用boost::python
 	- `ex1_3_QtEmbeddingPythonInterpreter` 与ex2类似，将python作为Qt GUI程序的脚本，实际未使用boost::python
 	- `ex1_4_embedding` 使用boost.python嵌入python解释器到c++应用
+	- `ex1_5_execfile` debug模式 exec_file失败，不知道为什么
 + 第二组 编写单独的wrapper
 	- `ex2_1_MultFilesWrapper` 为c++源码，单独封装一个wrapper供python调用
 	- `ex2_2_WrapperVector` 传递c++的`std::vector<A>`类型到python
 + 第三组 让python处理`c++`中的对象数据，此时是传递了一个c++对象的指针给python，不需要生成pyd格式的库。传递`c++`中的对象实例给python，让python处理，之后`c++`可以使用该处理后的对象实例。
 	- `ex3_1_cpp_object_to_python_single_file` 传递c++中的对象实例到python
 	- `ex3_2_cpp_object_to_python_mult_file` 同ex6，区别是分离成多个文件
+	- `ex3_3_cpp_object_to_python_execfile` 传递c++对象实例到python，作相应计算后，返回c++。debug模式 exec_file失败，不知道为什么
 
 编译运行实例，使用 `qtcreator` 打开各实例文件夹下的 `*.pro` 运行。
 
