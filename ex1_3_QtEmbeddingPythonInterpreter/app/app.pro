@@ -8,6 +8,8 @@ TEMPLATE = app #表示项目是应用程序模式
 DESTDIR = ../bin #定义项目编译之后生成的结果文件的存放路径
 CONFIG += c++11
 
+PYTHON391 = "G:\bin\Python39"
+
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
@@ -43,10 +45,10 @@ FORMS += \
 #win32:INCLUDEPATH += $$quote(F:\MyProgram\QtProject\libs\boost_1_75_0)
 
 CONFIG(debug, debug|release) {
-win32:LIBS += $$quote(F:\MyProgram\QtProject\libs\python3_9_1\libs\python39_d.lib)
+win32:LIBS += $$quote($$PYTHON391\libs\python39_d.lib)
 #win32:LIBS += $$quote(F:\MyProgram\QtProject\libs\boost_1_75_0\stage\lib\libboost_python39-vc141-mt-gd-x64-1_75.lib)
 }else{
-win32:LIBS += $$quote(F:\MyProgram\QtProject\libs\python3_9_1\libs\python39.lib)
+win32:LIBS += $$quote($$PYTHON391\libs\python39.lib)
 #win32:LIBS += $$quote(F:\MyProgram\QtProject\libs\boost_1_75_0\stage\lib\libboost_python39-vc141-mt-x64-1_75.lib)
 }
 
@@ -57,3 +59,17 @@ win32:LIBS += $$quote(F:\MyProgram\QtProject\libs\python3_9_1\libs\python39.lib)
 #win32:INCLUDEPATH += $$quote(F:\MyProgram\QtProject\libs\boost\include\boost-1_75)
 #win32:LIBS += $$quote(F:\MyProgram\QtProject\libs\boost\lib\boost_python37-vc141-mt-gd-x64-1_75.dll)
 #win32:LIBS += $$quote(F:\MyProgram\QtProject\libs\boost\lib\boost_numpy37-vc141-mt-gd-x64-1_75.dll)
+
+win32 {
+
+    OUTDIR=bin
+
+    FILE3=$$PWD/../script.py
+    FILE4=$$OUT_PWD/../$$OUTDIR/script.py
+
+    #复制script.py到exe所在目录
+    #让exe可以调用script.py
+    FILE3 ~= s,/,\\,g
+    FILE4 ~= s,/,\\,g
+    QMAKE_POST_LINK += $$QMAKE_COPY $$quote($$FILE3) $$quote($$FILE4) $$escape_expand(\\n\\t)
+}

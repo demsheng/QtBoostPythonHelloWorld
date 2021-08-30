@@ -22,7 +22,7 @@ using namespace std;
 int test() {
     //初始化读取 py 文件的信息
     std::ifstream fin;
-    fin.open("../../ex3_QtEmbeddingPythonInterpreter/script.py");
+    fin.open("./script.py");
     std::string str;
     std::string str_in = "";
     while (getline(fin, str))    //一行一行地读到字符串str_in中

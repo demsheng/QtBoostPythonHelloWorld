@@ -9,17 +9,105 @@
 ### 实例介绍
 + 第一组 入门
 	- `ex1_1_cpp2lib`  扩展python，`qtcreator` 中将使用`boost.python`库的cpp编译成lib,在python中调用该lib 。
-	- `ex1_2_cppEmbeddingPythonInterpreter` 将python作为cpp程序的脚本，实际未使用boost::python
-	- `ex1_3_QtEmbeddingPythonInterpreter` 与ex2类似，将python作为Qt GUI程序的脚本，实际未使用boost::python
-	- `ex1_4_embedding` 使用boost.python嵌入python解释器到c++应用
-	- `ex1_5_execfile` debug模式 exec_file失败，不知道为什么
+	进入编译目录 `.\build-ex1_1-Desktop_Qt_5_12_9_MSVC2017_64bit-Release\release` 打开cmd输入 `python test.py`,看到输出 
+		```
+		hello,world
+		```
+		说明成功！
+
+	- `ex1_2_cppEmbeddingPythonInterpreter` 将python作为cpp程序的脚本，实际未使用boost::python。
+	打开cmd进入 `build-ex1_2-Desktop_Qt_5_12_9_MSVC2017_64bit-Release\release`, 同时将 `script.py` 复制到该目录，执行 `ex1_2.exe`，输出 
+		```
+		#! /usr/bin/env python
+		# Copyright Stefan Seefeld 2006. Distributed under the Boost
+		# Software License, Version 1.0. (See accompanying
+		# file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+
+		print('Hello World !')
+		number = 42
+
+		Hello World !
+		it is over ....
+		```
+		说明成功！
+
+	- `ex1_3_QtEmbeddingPythonInterpreter` 与ex2类似，将python作为Qt GUI程序的脚本，实际未使用boost::python。输出
+		```
+		#! /usr/bin/env python
+		# Copyright Stefan Seefeld 2006. Distributed under the Boost
+		# Software License, Version 1.0. (See accompanying
+		# file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+
+		print('Hello World !')
+		number = 42
+
+		Hello World !
+		it is over ....
+		```
+		说明运行成功！
+
+	- `ex1_4_embedding` 使用boost.python嵌入python解释器到c++应用。
+	输出
+		```
+		I am called from cpp
+		sys.version:  3.9.1 (tags/v3.9.1:1e5d33e, Dec  7 2020, 17:08:21) [MSC v.1927 64 bit (AMD64)]
+		In cpp, method 1, five_squared: 25
+		In cpp, method 2, five_squared: 25
+		catch ZeroDivisionError in cpp
+		In python, going to sleep for 10 seconds
+		Traceback (most recent call last):
+		File "<string>", line 1, in <module>
+		ZeroDivisionError: division by zero
+		```
+		说明运行成功！
+	- `ex1_5_execfile` debug模式 exec_file失败，不知道为什么。
+	输出
+		```
+		hello.txt
+		The five_squeared caculated by python is 25
+		3.9.1 (tags/v3.9.1:1e5d33e, Dec  7 2020, 17:08:21) [MSC v.1927 64 bit (AMD64)]
+		Python has caculated foo as 2013
+		```
+		说明运行成功！
 + 第二组 编写单独的wrapper
-	- `ex2_1_MultFilesWrapper` 为c++源码，单独封装一个wrapper供python调用
-	- `ex2_2_WrapperVector` 传递c++的`std::vector<A>`类型到python
+	- `ex2_1_MultFilesWrapper` 为c++源码，单独封装一个wrapper供python调用。进入exe目录，打开cmd，输入 `python .\test.py` , 输出
+		```
+		15
+		15
+		```
+		说明运行成功！
+	- `ex2_2_WrapperVector` 传递c++的`std::vector<A>`类型到python。
+	进入exe目录，打开cmd，输入 `python .\test.py` , 输出
+		```
+		2
+		6
+		```
+		说明运行成功！
 + 第三组 让python处理`c++`中的对象数据，此时是传递了一个c++对象的指针给python，不需要生成pyd格式的库。传递`c++`中的对象实例给python，让python处理，之后`c++`可以使用该处理后的对象实例。
-	- `ex3_1_cpp_object_to_python_single_file` 传递c++中的对象实例到python
-	- `ex3_2_cpp_object_to_python_mult_file` 同ex6，区别是分离成多个文件
-	- `ex3_3_cpp_object_to_python_execfile` 传递c++对象实例到python，作相应计算后，返回c++。debug模式 exec_file失败，不知道为什么
+	- `ex3_1_cpp_object_to_python_single_file` 传递c++中的对象实例到python。输出
+		```
+		hello, I am Python
+		hello from python
+		```
+		说明运行成功！
+	- `ex3_2_cpp_object_to_python_mult_file` 同ex3_1，区别是分离成多个文件。输出
+		```
+		default constructor
+		hello init
+		hello from python
+		hello, I am Python
+		```
+		说明运行成功！
+	- `ex3_3_cpp_object_to_python_execfile` 传递c++对象实例到python，作相应计算后，返回c++。debug模式 exec_file失败，不知道为什么。输出
+		```
+		main begin 
+		main2 
+		main3 
+		In Python:
+		values in c++ object are now: -1 and -2
+		```
+		说明运行成功！
+
 
 编译运行实例，使用 `qtcreator` 打开各实例文件夹下的 `*.pro` 运行。
 
