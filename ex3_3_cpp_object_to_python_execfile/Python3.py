@@ -9,3 +9,4 @@ def predict_on_data(o):
     # modify some data
     o.slope = -1.0
     o.compliance = -2.0
+    return o

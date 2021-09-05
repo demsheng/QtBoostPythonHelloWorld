@@ -107,7 +107,11 @@
 		values in c++ object are now: -1 and -2
 		```
 		说明运行成功！
-
+	- `ex3_4_cpp_object_to_python_execfile` 传递c++对象实例作为全局变量传入python，作相应计算后，返回c++。输出
+		```
+		worldObjectPtr->greet(): Hello from Python!
+		```
+		说明运行成功！
 
 编译运行实例，使用 `qtcreator` 打开各实例文件夹下的 `*.pro` 运行。
 

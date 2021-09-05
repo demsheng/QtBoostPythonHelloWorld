@@ -24,7 +24,7 @@ public:
         this->name = name;
     }
     void greet() {
-        cout << "hello, I am " << name << endl;
+        cout << "c++hello, I am " << name << endl;
     }
 };
 
@@ -36,6 +36,9 @@ BOOST_PYTHON_MODULE(hello)
         .def("greet", &World::greet)
         .def("set", &World::set)
     ;
+
+    //添加全局的智能指针到python
+    register_ptr_to_python<world_ptr>();
 };
 
 int main() //(int argc, char **argv)
@@ -45,7 +48,7 @@ int main() //(int argc, char **argv)
         PyRun_SimpleString(
             "class Person:\n"
             "    def sayHi(self):\n"
-            "        print ('hello from python')\n"
+            "        print ('hello from python', flush=True)\n"
             "    def greetReset(self, instance):\n"
             "        instance.set('Python')\n"
           );
@@ -63,6 +66,13 @@ int main() //(int argc, char **argv)
         o_func1();
         object o_func2 = o_person.attr("greetReset");
         o_func2(boost::python::ptr(worldObjectPtr.get()));
+        worldObjectPtr->greet();
+
+        //添加全局的智能指针到python
+        //object module(handle<>(borrowed(PyImport_AddModule("__main__"))));
+        object dictionary = o_main.attr("__dict__");
+        dictionary["pyWorldObjectPtr"] = worldObjectPtr;
+        PyRun_SimpleString("pyWorldObjectPtr.set('csHello from Python script!')");
         worldObjectPtr->greet();
     }
     catch (error_already_set) {
