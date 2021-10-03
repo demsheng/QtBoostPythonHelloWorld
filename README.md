@@ -112,6 +112,15 @@
 		worldObjectPtr->greet(): Hello from Python!
 		```
 		说明运行成功！
+	- `ex3_5_cpp_object_to_python_execfile_include_h` 与ex3_4比，独立出来一个头文件
+	- `ex3_6_QtEmbeddingPython` 与ex3_5比，加入Qt窗口
+		```
+		worldObjectPtr->greet(): Hello from Python!
+		```
+		说明运行成功！
+		这里尤其需要注意！！！
+		- 如果要使用动态链接库，应该将动态链接库复制到exe所在目录。注意动态库名为 `boost_python39-vc141-mt-x64-1_75.dll` 和`boost_python39-vc141-mt-x64-1_75.lib` 。
+		- 如果使用静态库，则不需要。静态库`libboost_python39-vc141-mt-x64-1_75.lib`
 
 编译运行实例，使用 `qtcreator` 打开各实例文件夹下的 `*.pro` 运行。
 
